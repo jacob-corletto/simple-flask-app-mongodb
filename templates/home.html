@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Note Taking App</title>
+  </head>
+  <body>
+    <h1>My Notes</h1>
+    <ul>
+      {% for note in notes %}
+      <li>
+        <b>CWID:</b> {{ note.cwid }}<br />
+        <b>Full Name:</b> {{ note.full_name }}<br />
+        <a href="/delete/{{ note._id}}">Delete</a>
+      </li>
+      {% endfor %}
+    </ul>
+    <h2>Add a Note</h2>
+    <form method="POST" action="/add">
+      <label for="cwid">CWID:</label>
+      <input type="text" name="cwid" id="cwid" required /><br />
+      <label for="full_name">Full Name:</label>
+      <input type="text" name="full_name" id="full_name" required /><br />
+      <button type="submit">Add Note</button>
+    </form>
+  </body>
+</html>
